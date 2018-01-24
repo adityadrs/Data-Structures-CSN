@@ -161,7 +161,6 @@ void delete_node_function(struct Node *node)
       {
         printf("Invalid Input\n");
       }
-    
 
 }
 
