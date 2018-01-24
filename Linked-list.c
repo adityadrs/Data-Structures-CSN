@@ -2,33 +2,41 @@
 /************************************************************************************************************************************
 =====================================================================================================================================
 
-    -----------------------------------------------------------
-    |    Name                :      Aditya Dhan Raj Singh     |
-    -----------------------------------------------------------
-
-
+                  ╔═════════════════════════════════════════════════════════╗
+                  ║      Name                :    Aditya Dhan Raj Singh     ║
+                  ╚═════════════════════════════════════════════════════════╝
+ 
 This program generates a linked list that stores n values.
 Eacch entered value is appened to the end of the list. Other than append(), push() and insert_after() functions can be used.
 to change the way data is added to the list change the function in the loop that is running in the 
-		int main()
-		{
-		    .
-		    .
-		    int Y;
-		    for (int i = 0; i < a; ++i)
-		    {
-		      printf("Please the value: ");
-		      scanf("%d", &Y);
-	=====>	  append(&CSN102, Y); 
-		here in place of append(), push() and insert_after() can be used.
-		    .
-		    .
-		    .
-		    }
-		}
+    int main()
+    {
+        .
+        int Y;
+        for (int i = 0; i < a; ++i)
+        {
+          printf("Please the value: ");
+          scanf("%d", &Y);
+  =====>    append(&CSN102, Y); 
+    here in place of append(), push() and insert_after() can be used.
+        .
+        }
+    }
 
 NOTE: The syntax of using the insert_after() function is:
         insert_afte(head->next, value)
+*
+    
+       MAP OF FUNCTIONS:
+            art();                              // just some fun art 
+            push(&List, data);                  // to push data in the list
+            insert_after(head->next, data);     // to insert after a particular node
+            append(&List, value);               // to add data at the end of the list
+            reverse(&List);                     // to reverse the list order
+            print_list(&List);                  // to print the entire list
+            delete_node(&list, value);          // where the actual deletion of data occurs
+            delete_node_function(&List);        // seperate function for simplistic formatting and edditing
+            main();                             //main funstion
 
 =====================================================================================================================================
 ************************************************************************************************************************************/
@@ -36,8 +44,28 @@ NOTE: The syntax of using the insert_after() function is:
 #include <stdio.h>
 #include <stdlib.h>
 
-// A linked list node
+//colour  scheem
+#define RED       "\033[01;31m" 
+#define RED_BL    "\033[06;31m"
+#define GREEN     "\033[01;32m" 
+#define YELLOW    "\033[01;33m" 
+#define BLUE      "\033[01;34m" 
+#define BOLD      "\033[01;01m" 
+#define RESET     "\033[00m"   
+#define PURPLE    "\033[1;95m"
+#define CYAN      "\033[0;96m"
+#define ONBLACK   "\033[40m"
+#define UGREEN    "\033[4;29m"
+#define ITALIC    "\033[03;29m"
 
+
+//who hates some art!
+void art()
+{
+    printf(GREEN "\n\t██╗     ██╗███╗   ██╗██╗  ██╗███████╗██████╗     ██╗     ██╗███████╗████████╗███████╗\n\t██║     ██║████╗  ██║██║ ██╔╝██╔════╝██╔══██╗    ██║     ██║██╔════╝╚══██╔══╝██╔════╝\n\t██║     ██║██╔██╗ ██║█████╔╝ █████╗  ██║  ██║    ██║     ██║███████╗   ██║   ███████╗\n\t██║     ██║██║╚██╗██║██╔═██╗ ██╔══╝  ██║  ██║    ██║     ██║╚════██║   ██║   ╚════██║\n\t███████╗██║██║ ╚████║██║  ██╗███████╗██████╔╝    ███████╗██║███████║   ██║   ███████║\n\t╚══════╝╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚══════╝╚═════╝     ╚══════╝╚═╝╚══════╝   ╚═╝   ╚══════╝\n"RESET);
+}
+
+// Initialize a linked list node using struct
 struct Node
 {
   int data;
@@ -87,7 +115,7 @@ void append(struct Node** head_ref, int new_data)
 }
  
 //function to reverse the linked list
-static void reverse(struct Node** head_ref)
+void reverse(struct Node** head_ref)
 {
     struct Node* prev   = NULL;
     struct Node* current = *head_ref;
@@ -104,16 +132,18 @@ static void reverse(struct Node** head_ref)
 
 
 //this is the print function that prints the data stored in the linked list
+//colour has been added into this so when ever it is called the output will be YELLOW
 void print_list(struct Node *node)
 {
   while (node != NULL)
   {
-     printf(" %d ", node->data);
+     printf(YELLOW" %d "RESET, node->data);
      node = node->next;
   }
 }
 
-
+//this function is called by the delete_node_function()
+//this is the actual place where the node is being deleted
 void delete_node(struct Node **head_ref, int key)
 {
     struct Node* temp = *head_ref, *prev;
@@ -135,19 +165,23 @@ void delete_node(struct Node **head_ref, int key)
 }
 
 //This depends on the delete_node() function
-//I have seperated it from the main() for neatness
+//I have seperated it from the main() for neatness and flexiblity of formatting
+
 void delete_node_function(struct Node *node)
 {
-    printf("\nEnter the element to delete: " );
+    printf(RED"\nEnter the element to delete: "RESET );
     int del;
     scanf("%d", &del);
-    printf("You have entered: %d\n", del);
-    printf("Are you sure? \ny/n: ");
+    printf(UGREEN GREEN"You have entered:"RESET);
+    printf(GREEN" %d\n"RESET,del);
+    printf(RED"Are you sure? y/n: "RESET);
     char condition_1;
     scanf(" %c", &condition_1);
-    if (condition_1 == 'y')
+    if (condition_1 == 'y' || condition_1 == 'Y')
       {
-          printf("You have chosen Yes\nUpdated list is:\n");
+          printf(CYAN"\nYou have chosen"RESET);
+          printf(YELLOW ITALIC" Yes"RESET);
+          printf(CYAN"\n\nUpdated list is:\n"RESET);
           delete_node(&node, del);
           print_list(node);
       }
@@ -161,30 +195,32 @@ void delete_node_function(struct Node *node)
       {
         printf("Invalid Input\n");
       }
+    
 
 }
 
 int main()
 {
-    
+    ONBLACK;
+    art();
     struct Node* CSN102 = NULL;
     int a;
-    printf("Please the number of elements in the list: ");
+    printf(YELLOW"Please the number of elements in the list: "RESET);
     scanf("%d", &a);
 
-    printf("You entered: %d\n", a);
+    printf(PURPLE"You entered: %d\n"RESET, a );
 
     int Y;
     for (int i = 0; i < a; ++i)
     {
-      printf("Please the value: ");
+      printf(BLUE"Please the value: "RESET);
       scanf("%d", &Y);
       append(&CSN102, Y);
     }
 
-    printf("\nThe current list is: \n");
+    printf(CYAN"\nThe current list is: \n"RESET);
     print_list(CSN102);
-    printf("\nThe reversed list is: \n");
+    printf(CYAN"\nThe reversed list is: \n"RESET);
     reverse(&CSN102);
     print_list(CSN102);
     delete_node_function(CSN102);
