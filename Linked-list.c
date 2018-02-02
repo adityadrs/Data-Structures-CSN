@@ -5,27 +5,31 @@
                   ╔═════════════════════════════════════════════════════════╗
                   ║      Name                :    Aditya Dhan Raj Singh     ║
                   ╚═════════════════════════════════════════════════════════╝
- 
-This program generates a linked list that stores n values.
-Eacch entered value is appened to the end of the list. Other than append(), push() and insert_after() functions can be used.
-to change the way data is added to the list change the function in the loop that is running in the 
-    int main()
-    {
-        .
-        int Y;
-        for (int i = 0; i < a; ++i)
+
+HOW TO RUN:
+    Copy paste the entire code to a compiler or save as a *.c file
+    for linux systems use gcc *fine.c* -o *output file name*
+
+AIM:
+    This program generates a linked list that stores n values.
+    Each entered value is appened to the end of the list. Other than append(), push() and insert_after() functions can be used.
+    to change the way data is added to the list change the function in the loop that is running in the 
+        int main()
         {
-          printf("Please the value: ");
-          scanf("%d", &Y);
-  =====>    append(&CSN102, Y); 
-    here in place of append(), push() and insert_after() can be used.
-        .
+            .
+            int Y;
+            for (int i = 0; i < a; ++i)
+            {
+              printf("Please the value: ");
+              scanf("%d", &Y);
+      =====>    append(&CSN102, Y); 
+        here in place of append(), push() and insert_after() can be used.
+            .
+            }
         }
-    }
 
 NOTE: The syntax of using the insert_after() function is:
         insert_afte(head->next, value)
-*
     
        MAP OF FUNCTIONS:
             art();                              // just some fun art 
@@ -40,7 +44,6 @@ NOTE: The syntax of using the insert_after() function is:
 
 =====================================================================================================================================
 ************************************************************************************************************************************/
-
 #include <stdio.h>
 #include <stdlib.h>
 
