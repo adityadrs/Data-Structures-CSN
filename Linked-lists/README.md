@@ -1,8 +1,9 @@
 # Data Structures
 
 ## HOW TO RUN:
-    Copy paste the entire code to a compiler or save as a *.c file
-    for linux systems use gcc *fine.c* -o *output file name*
+
+  Copy paste the entire code to a compiler or save as a *.c file
+  for linux systems use gcc *fine.c* -o *output file name*
 
 ## AIM:
 This program generates a linked list that stores n values.
@@ -29,7 +30,7 @@ to change the way data is added to the list change the function in the loop that
         }
 ```
 ## NOTE: 
-  The syntax of using the ```insert_after()  ``` function is:
+  The syntax of using the ``` insert_after()  ``` function is:
  ``` insert_afte(head->next, value)```
     
 ## MAP OF FUNCTIONS:
