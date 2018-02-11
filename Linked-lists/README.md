@@ -29,8 +29,8 @@ to change the way data is added to the list change the function in the loop that
         }
 ```
 ## NOTE: 
-  The syntax of using the insert_after() function is:
-  insert_afte(head->next, value)
+  The syntax of using the ```insert_after()  ``` function is:
+ ``` insert_afte(head->next, value)```
     
 ## MAP OF FUNCTIONS:
 ```C
@@ -44,4 +44,3 @@ to change the way data is added to the list change the function in the loop that
   delete_node_function(&List);        // seperate function for simplistic formatting and edditing
   main();  
   ```
-  

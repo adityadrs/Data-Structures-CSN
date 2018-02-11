@@ -227,6 +227,7 @@ int main()
     reverse(&CSN102);
     print_list(CSN102);
     delete_node_function(CSN102);
+    printf("latest version at: \n\thttps://github.com/adityadrs/Data-Structures-CSN/tree/master/Linked-lists\n");
 
 
     return 0;
